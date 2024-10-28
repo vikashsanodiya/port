@@ -7,17 +7,24 @@ import Link from "next/link";
 import { Skill } from "@/types/types";
 
 const getData = async () => {
-  const req = await fetch(process.env.BASE_URL + "/api/skills", {
-    method: "GET",
-    headers: {
-      "content-type": "application/json",
-    },
-  });
-  return req.json();
+  try {
+    const req = await fetch(`${process.env.BASE_URL}/api/skills`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    if (!req.ok) throw new Error("Failed to fetch data");
+    return await req.json();
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return { skills: null };
+  }
 };
 
 const About = async () => {
   const data = await getData();
+
   return (
     <section className="flex flex-col items-center justify-center gap-10 dark:bg-dot-white/[0.16]">
       <div className="md:w-[90%] xl:w-[70%] px-4 md:px-0 my-20 md:my-32">
@@ -57,7 +64,7 @@ const About = async () => {
           <h2 className="text-4xl font-bold my-10 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 leading-tight">
             What I Know
           </h2>
-          {data.skills ? (
+          {data && data.skills ? (
             <div className="grid md:grid-cols-2 2xl:grid-cols-3 gap-5">
               {data.skills.map((item: Skill) => {
                 return <SkillCard key={item._id} data={item} />;
