@@ -37,7 +37,7 @@ const Socials: React.FC<{ hidden: boolean }> = ({ hidden }) => {
       </li>
       <li className={linkStyle}>
         <a
-          href="https://twitter.com/lakshaybabbar_"
+          href="https://twitter.com/vikassanodiyap_"
           target="_blank"
           aria-label="twitter profile"
         >

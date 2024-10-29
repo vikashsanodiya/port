@@ -67,7 +67,7 @@ const Navbar = () => {
             </li>
             <li className={linkStyle}>
               <Link
-                href="https://blog-tech-delta.vercel.app/users/lakshaybabbar0118"
+                href="https://www.floobyte.com"
                 target="_blank"
               >
                 <span className={linkSpan}>

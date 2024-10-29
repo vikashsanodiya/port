@@ -66,11 +66,11 @@ const Contact = () => {
           </h1>
           <p className="flex items-center">
             <MdEmail />
-            &nbsp;Lakshay.babbar.1801@gmail.com
+            &nbsp;vikassanodiyap@gmail.com
           </p>
           <p className="flex items-center">
             <IoPhonePortraitOutline />
-            &nbsp;9953712825
+            &nbsp;9301930088
           </p>
           <div className="mt-2">
             <Socials hidden={false} />
